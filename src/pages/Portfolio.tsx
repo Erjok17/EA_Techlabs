@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ExternalLink, 
-  Smartphone, 
-  Globe, 
   ArrowRight,
   X,
   Github
