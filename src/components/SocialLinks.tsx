@@ -1,4 +1,4 @@
-import { Linkedin, Instagram,  MessageSquare, Mail } from 'lucide-react';
+import { Linkedin, Instagram, MessageSquare, Mail } from 'lucide-react';
 
 const SocialLinks = () => {
   const socials = [
@@ -30,15 +30,7 @@ const SocialLinks = () => {
       color: 'text-electric-blue',
       bgColor: 'bg-electric-blue',
     },
-  // {
-  //     name: 'Twitter',
-  //     url: 'https://twitter.com/ea_techlabs',
-  //     icon: Twitter,
-  //     color: 'text-blue-400',
-  //     bgColor: 'bg-blue-400',
-  // },
   ];
-
 
   return (
     <div className="flex gap-4">
