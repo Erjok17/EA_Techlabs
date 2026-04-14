@@ -11,7 +11,6 @@ import {
   laneVcImage, 
   chiHairluxImage, 
   handcraftedImage,
-//   mobileAppImage
 } from '../assets/images';
 
 interface PortfolioItem {
