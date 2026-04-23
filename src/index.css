@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Adjust Chatbit widget position */
+.cb-chat-container {
+  bottom: 80px !important;  /* Moves it up above WhatsApp button */
+}
+
+/* Or if you want it on the left side */
+.cb-chat-container {
+  right: auto !important;
+  left: 20px !important;
+  bottom: 20px !important;
+}
+/* Ensure sufficient contrast */
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+/* Fix button accessibility */
+button:focus-visible {
+  outline: 2px solid #00A8E8;
+  outline-offset: 2px;
+}
+
+/* Ensure links have sufficient contrast */
+a:focus-visible {
+  outline: 2px solid #00A8E8;
+  outline-offset: 2px;
+}

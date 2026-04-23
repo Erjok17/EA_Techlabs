@@ -89,25 +89,6 @@ const portfolioItems: PortfolioItem[] = [
     solution: "Created a gallery-style website with smooth animations, intuitive navigation, and focus on product presentation.",
     date: "2024"
   },
-//   {
-//     id: 4,
-//     title: "Mobile App Project",
-//     description: "Native mobile application developed in Android Studio with full functionality and modern UI.",
-//     category: "mobile",
-//     techStack: ["Android Studio", "Java/Kotlin", "SQLite", "REST APIs", "Material Design"],
-//     image: mobileAppImage,
-//     features: [
-//       "Native Android development",
-//       "Offline data storage",
-//       "User authentication",
-//       "API integration",
-//       "Push notifications",
-//       "Modern Material Design UI"
-//     ],
-//     challenge: "Develop a fully functional native Android app with offline capabilities and smooth user experience.",
-//     solution: "Built using Android Studio with local SQLite database, REST API integration, and modern Material Design principles.",
-//     date: "2024"
-//   }
 ];
 
 const Portfolio = () => {
@@ -121,13 +102,13 @@ const Portfolio = () => {
   return (
     <div className="pt-20">
       {/* Header */}
-      <section className="bg-gradient-to-r from-dark-blue to-electric-blue text-white py-20">
+      <section className="bg-gradient-to-r from-dark-blue to-electric-blue text-white py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
           >
             My Portfolio
           </motion.h1>
@@ -135,7 +116,7 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl max-w-2xl mx-auto"
+            className="text-base md:text-xl max-w-2xl mx-auto text-white/80"
           >
             Real projects that showcase my skills and expertise
           </motion.p>
@@ -143,9 +124,9 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b sticky top-16 z-30">
+      <section className="py-6 md:py-8 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {[
               { value: 'all', label: 'All Projects' },
               { value: 'website', label: 'Websites' },
@@ -155,7 +136,7 @@ const Portfolio = () => {
               <button
                 key={cat.value}
                 onClick={() => setFilter(cat.value as any)}
-                className={`px-5 py-2 rounded-full capitalize transition-all duration-300 ${
+                className={`px-4 md:px-5 py-1.5 md:py-2 rounded-full text-sm md:text-base capitalize transition-all duration-300 ${
                   filter === cat.value
                     ? 'bg-electric-blue text-white shadow-lg'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -169,14 +150,14 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-500">No projects found in this category yet.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -187,30 +168,31 @@ const Portfolio = () => {
                 >
                   {/* Project Image */}
                   <div 
-                    className="relative h-64 overflow-hidden bg-gray-100 cursor-pointer"
+                    className="relative h-56 md:h-64 overflow-hidden bg-gray-100 cursor-pointer"
                     onClick={() => setSelectedProject(project)}
                   >
                     <img 
                       src={project.image} 
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-dark-blue bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                      <span className="bg-white text-dark-blue px-4 py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute inset-0 bg-dark-blue bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+                      <span className="bg-white text-dark-blue px-4 py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-sm">
                         Click to view details
                       </span>
                     </div>
                   </div>
                   
-                  <div className="p-6">
+                  <div className="p-5 md:p-6">
                     <div className="flex justify-between items-start mb-2">
-                      <h2 className="text-2xl font-bold text-dark-blue">{project.title}</h2>
+                      <h2 className="text-xl md:text-2xl font-bold text-dark-blue">{project.title}</h2>
                       <span className="text-xs px-2 py-1 bg-gray-100 rounded-full capitalize">
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
+                    <p className="text-gray-600 text-sm md:text-base mb-4 line-clamp-2">{project.description}</p>
                     
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -230,18 +212,20 @@ const Portfolio = () => {
                     <div className="flex gap-3 mt-4 pt-4 border-t">
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="text-electric-blue hover:text-dark-blue font-medium transition flex items-center gap-1"
+                        className="text-electric-blue hover:text-dark-blue font-medium transition flex items-center gap-1 text-sm"
+                        aria-label={`View details of ${project.title}`}
                       >
-                        View Details <ArrowRight size={16} />
+                        View Details <ArrowRight size={14} />
                       </button>
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-electric-blue transition flex items-center gap-1"
+                          className="text-gray-500 hover:text-electric-blue transition flex items-center gap-1 text-sm"
+                          aria-label={`View live demo of ${project.title}`}
                         >
-                          <ExternalLink size={16} /> Live Demo
+                          <ExternalLink size={14} /> Live Demo
                         </a>
                       )}
                     </div>
@@ -262,9 +246,12 @@ const Portfolio = () => {
           <div 
             className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-labelledby="project-modal-title"
+            aria-modal="true"
           >
             {/* Modal Header with Image */}
-            <div className="relative h-64 md:h-80 bg-gray-100">
+            <div className="relative h-56 md:h-80 bg-gray-100">
               <img 
                 src={selectedProject.image} 
                 alt={selectedProject.title}
@@ -272,16 +259,17 @@ const Portfolio = () => {
               />
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition"
+                className="absolute top-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition focus:outline-none focus:ring-2 focus:ring-white"
+                aria-label="Close details"
               >
                 <X size={24} />
               </button>
             </div>
             
             {/* Modal Content */}
-            <div className="p-6 md:p-8">
+            <div className="p-5 md:p-8">
               <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                <h2 className="text-2xl md:text-3xl font-bold text-dark-blue">
+                <h2 id="project-modal-title" className="text-xl md:text-3xl font-bold text-dark-blue">
                   {selectedProject.title}
                 </h2>
                 <span className="text-xs px-3 py-1 bg-gray-100 rounded-full capitalize">
@@ -315,7 +303,7 @@ const Portfolio = () => {
                 <h3 className="font-semibold text-dark-blue text-lg mb-2">Key Features</h3>
                 <ul className="grid md:grid-cols-2 gap-2">
                   {selectedProject.features.map((feature, i) => (
-                    <li key={i} className="text-gray-600 flex items-center gap-2">
+                    <li key={i} className="text-gray-600 flex items-center gap-2 text-sm">
                       <span className="text-electric-blue">✓</span> {feature}
                     </li>
                   ))}
@@ -341,6 +329,7 @@ const Portfolio = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-electric-blue text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition"
+                    aria-label={`View live demo of ${selectedProject.title}`}
                   >
                     <ExternalLink size={18} />
                     View Live Project
@@ -370,15 +359,15 @@ const Portfolio = () => {
       )}
 
       {/* Call to Action */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-dark-blue mb-4">Have a Project in Mind?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-dark-blue mb-4">Have a Project in Mind?</h2>
+          <p className="text-base md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's discuss your idea and create something amazing together.
           </p>
           <Link
             to="/contact"
-            className="bg-electric-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition inline-flex items-center gap-2"
+            className="bg-electric-blue text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-opacity-90 transition inline-flex items-center gap-2 text-sm md:text-base"
           >
             Start Your Project <ArrowRight size={18} />
           </Link>

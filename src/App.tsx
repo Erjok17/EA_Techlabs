@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
 import Portfolio from './pages/Portfolio';
 import Solutions from './pages/Solutions';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Footer />
         {/* WhatsApp Button - Fixed position on screen */}
         <WhatsAppButton />
+        <Chatbot />
       </div>
     </Router>
   );
