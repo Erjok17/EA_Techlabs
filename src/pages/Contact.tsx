@@ -18,13 +18,14 @@ const Contact = () => {
     message: string;
   }>({ type: null, message: '' });
 
+  // Updated to use your Formspree endpoint
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch('https://formspree.io/f/mrejawap', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,9 +38,8 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      // Formspree returns 200 OK on success
+      if (response.ok) {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! I\'ll get back to you within 24 hours.',
@@ -52,7 +52,9 @@ const Contact = () => {
           projectType: '',
         });
       } else {
-        throw new Error(data.error || 'Submission failed');
+        const errorData = await response.json();
+        console.error('Formspree error:', errorData);
+        throw new Error(errorData.error || 'Submission failed');
       }
     } catch (error) {
       console.error('Submission error:', error);
@@ -63,6 +65,7 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
       
+      // Clear success message after 5 seconds
       setTimeout(() => {
         if (submitStatus.type === 'success') {
           setSubmitStatus({ type: null, message: '' });
@@ -217,6 +220,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* ... (rest of your UI sections remain unchanged: Business Hours, Response Time Badge, Service Area, Trust Badges, FAQ) ... */}
               {/* Business Hours */}
               <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-dark-blue mb-3">Business Hours</h3>
