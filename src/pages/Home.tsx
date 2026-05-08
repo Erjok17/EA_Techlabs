@@ -128,7 +128,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-7xl font-bold mb-4"
           >
-            EA TechLabs
+            TechLabs Africa 
           </motion.h1>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -169,24 +169,51 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="py-12 bg-white border-b">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="text-center"
+      >
+        <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">25+</div>
+        <div className="text-sm text-gray-600">Projects Delivered</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="text-center"
+      >
+        <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">90%</div>
+        <div className="text-sm text-gray-600">Client Satisfaction</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="text-center"
+      >
+        <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">Fast</div>
+        <div className="text-sm text-gray-600">Response Time</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="text-center"
+      >
+        <div className="text-3xl md:text-4xl font-bold text-electric-blue mb-2">East Africa</div>
+        <div className="text-sm text-gray-600">Client Base</div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Services Overview */}
       <section className="py-20">

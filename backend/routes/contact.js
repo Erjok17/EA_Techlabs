@@ -64,7 +64,7 @@ router.post('/', async (req, res) => {
     // 2. Send Email Notification to YOU
     try {
       await transporter.sendMail({
-        from: `"EA TechLabs Contact" <${process.env.EMAIL_USER}>`,
+        from: `"TechLabs Africa  Contact" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
         subject: `🔔 New Contact: ${name} wants to discuss a ${projectType || 'project'}`,
         html: `
@@ -123,14 +123,14 @@ router.post('/', async (req, res) => {
     // 3. Send Auto-reply to the person who contacted you
     try {
       await transporter.sendMail({
-        from: `"EA TechLabs" <${process.env.EMAIL_USER}>`,
+        from: `"TechLabs Africa " <${process.env.EMAIL_USER}>`,
         to: email,
-        subject: 'Thank you for contacting EA TechLabs',
+        subject: 'Thank you for contacting TechLabs Africa ',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #0A192F;">Thank you for reaching out!</h2>
             <p>Dear ${name},</p>
-            <p>Thank you for contacting EA TechLabs. I have received your message regarding <strong>${projectType || 'your project'}</strong>.</p>
+            <p>Thank you for contacting TechLabs Africa . I have received your message regarding <strong>${projectType || 'your project'}</strong>.</p>
             <p>I will review your inquiry and get back to you within 24 hours.</p>
             <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
               <p style="margin: 0;"><strong>Your message:</strong></p>
@@ -140,7 +140,7 @@ router.post('/', async (req, res) => {
             <br>
             <p>Best regards,<br>
             <strong>Erjok Agot</strong><br>
-            Founder, EA TechLabs</p>
+            Founder, TechLabs Africa </p>
           </div>
         `,
       });

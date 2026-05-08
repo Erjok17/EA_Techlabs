@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              EA <span className="text-electric-blue">TechLabs</span>
+              TechLabs <span className="text-electric-blue">Africa </span>
             </h3>
             <p className="text-gray-300">
               Software Solutions for Every Need
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} EA TechLabs. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} TechLabs Africa . All rights reserved.</p>
         </div>
       </div>
     </footer>

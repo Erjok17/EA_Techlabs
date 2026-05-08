@@ -77,7 +77,7 @@ const Navbar = () => {
               to="/" 
               className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${getTextColor()}`}
             >
-              EA <span className="text-electric-blue">TechLabs</span>
+              TechLabs<span className="text-electric-blue"> Africa</span>
             </Link>
 
             {/* Desktop Menu */}

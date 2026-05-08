@@ -169,7 +169,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">LinkedIn</h3>
-                    <p className="text-gray-600 group-hover:text-blue-600 transition-colors">EA TechLabs Company Page</p>
+                    <p className="text-gray-600 group-hover:text-blue-600 transition-colors">TechLabs Africa  Company Page</p>
                     <p className="text-xs text-gray-500">Follow us for updates</p>
                   </div>
                 </a>

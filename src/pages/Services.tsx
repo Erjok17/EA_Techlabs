@@ -281,7 +281,7 @@ const Services = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
             >
-              <h2 className="text-3xl font-bold text-dark-blue mb-4">Why Choose EA TechLabs</h2>
+              <h2 className="text-3xl font-bold text-dark-blue mb-4">Why Choose TechLabs Africa </h2>
               <p className="text-lg text-gray-600 mb-6">
                 We combine technical expertise with a client-focused approach to deliver exceptional results.
               </p>

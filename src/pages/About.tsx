@@ -90,7 +90,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            About EA TechLabs
+            About TechLabs Africa 
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -104,25 +104,55 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <stat.icon className="w-8 h-8 text-electric-blue mx-auto mb-2" />
-                <div className="text-2xl font-bold text-dark-blue">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="py-12 bg-white border-b">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="text-center"
+      >
+        <Building2 className="w-8 h-8 text-electric-blue mx-auto mb-2" />
+        <div className="text-2xl font-bold text-dark-blue">25+</div>
+        <div className="text-sm text-gray-600">Projects Delivered</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="text-center"
+      >
+        <Award className="w-8 h-8 text-electric-blue mx-auto mb-2" />
+        <div className="text-2xl font-bold text-dark-blue">90%</div>
+        <div className="text-sm text-gray-600">Client Satisfaction</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="text-center"
+      >
+        <Clock className="w-8 h-8 text-electric-blue mx-auto mb-2" />
+        <div className="text-2xl font-bold text-dark-blue">Fast</div>
+        <div className="text-sm text-gray-600">Response Time</div>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="text-center"
+      >
+        <Globe className="w-8 h-8 text-electric-blue mx-auto mb-2" />
+        <div className="text-2xl font-bold text-dark-blue">East Africa</div>
+        <div className="text-sm text-gray-600">Client Base</div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Story Section */}
       <section className="py-20">
@@ -135,7 +165,7 @@ const About = () => {
               <h2 className="text-3xl font-bold text-dark-blue mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p className="text-lg leading-relaxed">
-                  EA TechLabs was founded with a simple mission: to help organizations of all types 
+                  TechLabs Africa was founded with a simple mission: to help organizations of all types 
                   harness the power of technology. We saw too many businesses struggling with 
                   outdated systems, manual processes, and missed opportunities due to lack of 
                   access to quality software development.
