@@ -10,10 +10,12 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Portfolio from './pages/Portfolio';
 import Solutions from './pages/Solutions';
 import Chatbot from './components/Chatbot';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
