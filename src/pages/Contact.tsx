@@ -174,7 +174,7 @@ const Contact = () => {
                   </div>
                 </a>
 
-                {/* Instagram */}
+                {/* Instagram section */}
                 <a 
                   href={socialLinks.instagram}
                   target="_blank"
