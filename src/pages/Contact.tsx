@@ -1,8 +1,33 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Send, MapPin, CheckCircle, AlertCircle, Instagram, Twitter } from 'lucide-react';
+import { Mail, Linkedin, Send, MapPin, CheckCircle, AlertCircle, Instagram } from 'lucide-react';
 import type { ContactFormData } from '../types';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+
+// X (Twitter) Icon Component
+const XIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+  </svg>
+);
+
+// Facebook Icon Component
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
 
 const Contact = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -18,7 +43,6 @@ const Contact = () => {
     message: string;
   }>({ type: null, message: '' });
 
-  // Updated to use your Formspree endpoint
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -38,13 +62,11 @@ const Contact = () => {
         }),
       });
 
-      // Formspree returns 200 OK on success
       if (response.ok) {
         setSubmitStatus({
           type: 'success',
           message: 'Thank you! I\'ll get back to you within 24 hours.',
         });
-        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -60,12 +82,11 @@ const Contact = () => {
       console.error('Submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'Something went wrong. Please email me directly at erjokagottechlabs@gmail.com',
+        message: 'Something went wrong. Please email me directly at techlabsafrica1@gmail.com',
       });
     } finally {
       setIsSubmitting(false);
       
-      // Clear success message after 5 seconds
       setTimeout(() => {
         if (submitStatus.type === 'success') {
           setSubmitStatus({ type: null, message: '' });
@@ -82,13 +103,14 @@ const Contact = () => {
     }));
   };
 
-  // Social media links with proper URLs
+  // Social media links with proper URLs - UPDATED
   const socialLinks = {
-    email: 'mailto:erjokagottechlabs@gmail.com?subject=Project%20Inquiry%20from%20Website&body=Hello%20EA%20TechLabs%2C%0A%0AI%27m%20interested%20in%20your%20services...',
+    email: 'mailto:techlabsafrica1@gmail.com?subject=Project%20Inquiry%20from%20Website&body=Hello%20TechLabs%20Africa%2C%0A%0AI%27m%20interested%20in%20your%20services...',
     whatsapp: 'https://wa.me/256769463447?text=Hello%21%20I%27m%20interested%20in%20your%20software%20development%20services.%20Can%20you%20help%20me%20with%20a%20project%3F',
     linkedin: 'https://www.linkedin.com/company/eatechlabs',
-    instagram: 'https://www.instagram.com/ea_techlabs.1/',
-    twitter: 'https://twitter.com/eatechlabs',
+    instagram: 'https://www.instagram.com/techlabs_africa.1/',
+    twitter: 'https://x.com/techlabsAf_1',
+    facebook: 'https://www.facebook.com/share/1AenXsQWyZ/',
   };
 
   // FAQ data
@@ -126,7 +148,7 @@ const Contact = () => {
               </p>
               
               <div className="space-y-6">
-                {/* Email - Clickable */}
+                {/* Email */}
                 <a 
                   href={socialLinks.email}
                   className="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition-transform duration-300"
@@ -136,11 +158,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600 group-hover:text-electric-blue transition-colors">erjokagottechlabs@gmail.com</p>
+                    <p className="text-gray-600 group-hover:text-electric-blue transition-colors">techlabsafrica1@gmail.com</p>
                   </div>
                 </a>
                 
-                {/* WhatsApp - Using custom WhatsAppIcon */}
+                {/* WhatsApp */}
                 <a 
                   href={socialLinks.whatsapp}
                   target="_blank"
@@ -157,7 +179,7 @@ const Contact = () => {
                   </div>
                 </a>
                 
-                {/* LinkedIn Company Page */}
+                {/* LinkedIn */}
                 <a 
                   href={socialLinks.linkedin}
                   target="_blank"
@@ -169,12 +191,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">LinkedIn</h3>
-                    <p className="text-gray-600 group-hover:text-blue-600 transition-colors">TechLabs Africa  Company Page</p>
+                    <p className="text-gray-600 group-hover:text-blue-600 transition-colors">TechLabs Africa Company Page</p>
                     <p className="text-xs text-gray-500">Follow us for updates</p>
                   </div>
                 </a>
 
-                {/* Instagram section */}
+                {/* Instagram */}
                 <a 
                   href={socialLinks.instagram}
                   target="_blank"
@@ -186,25 +208,42 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Instagram</h3>
-                    <p className="text-gray-600 group-hover:text-pink-600 transition-colors">@ea_techlabs.1</p>
+                    <p className="text-gray-600 group-hover:text-pink-600 transition-colors">@techlabs_africa.1</p>
                     <p className="text-xs text-gray-500">Follow for updates & tech insights</p>
                   </div>
                 </a>
 
-                {/* Twitter/X */}
+                {/* X (Twitter) - Updated with X icon */}
                 <a 
                   href={socialLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition-transform duration-300"
                 >
-                  <div className="bg-sky-500 bg-opacity-10 p-3 rounded-full group-hover:bg-opacity-20 transition-all duration-300">
-                    <Twitter className="w-6 h-6 text-sky-500" />
+                  <div className="bg-black bg-opacity-10 p-3 rounded-full group-hover:bg-opacity-20 transition-all duration-300">
+                    <XIcon size={24} className="text-black" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Twitter/X</h3>
-                    <p className="text-gray-600 group-hover:text-sky-500 transition-colors">@eatechlabs</p>
+                    <h3 className="font-semibold">X (Twitter)</h3>
+                    <p className="text-gray-600 group-hover:text-black transition-colors">@techlabsAf_1</p>
                     <p className="text-xs text-gray-500">Latest news & announcements</p>
+                  </div>
+                </a>
+
+                {/* Facebook - New */}
+                <a 
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition-transform duration-300"
+                >
+                  <div className="bg-blue-800 bg-opacity-10 p-3 rounded-full group-hover:bg-opacity-20 transition-all duration-300">
+                    <FacebookIcon size={24} className="text-blue-700" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Facebook</h3>
+                    <p className="text-gray-600 group-hover:text-blue-700 transition-colors">TechLabs Africa</p>
+                    <p className="text-xs text-gray-500">Follow our page</p>
                   </div>
                 </a>
                 
@@ -220,7 +259,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* ... (rest of your UI sections remain unchanged: Business Hours, Response Time Badge, Service Area, Trust Badges, FAQ) ... */}
               {/* Business Hours */}
               <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-dark-blue mb-3">Business Hours</h3>
@@ -265,25 +303,25 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Trust Badges */}
+              {/* Trust Badges - Updated to realistic values */}
               <div className="mt-6 flex flex-wrap gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                     <span className="text-blue-600 text-xs">✓</span>
                   </div>
-                  <span className="text-xs text-gray-500">50+ Projects</span>
+                  <span className="text-xs text-gray-500">25+ Projects</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                     <span className="text-green-600 text-xs">✓</span>
                   </div>
-                  <span className="text-xs text-gray-500">100% Satisfaction</span>
+                  <span className="text-xs text-gray-500">90% Satisfaction</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                     <span className="text-purple-600 text-xs">✓</span>
                   </div>
-                  <span className="text-xs text-gray-500">24/7 Support</span>
+                  <span className="text-xs text-gray-500">Fast Support</span>
                 </div>
               </div>
 
@@ -312,7 +350,6 @@ const Contact = () => {
             >
               <h2 className="text-2xl font-bold text-dark-blue mb-6">Tell Us About Your Project</h2>
               
-              {/* Status Message */}
               {submitStatus.type && (
                 <div className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${
                   submitStatus.type === 'success' 
@@ -422,14 +459,14 @@ const Contact = () => {
                 <p className="text-sm text-gray-500">
                   Prefer email? Directly reach out at <br />
                   <a href={socialLinks.email} className="text-electric-blue font-medium hover:underline">
-                    erjokagottechlabs@gmail.com
+                    techlabsafrica1@gmail.com
                   </a>
                 </p>
               </div>
 
               {/* Newsletter Signup */}
               <div className="mt-6 p-4 bg-gradient-to-r from-dark-blue to-electric-blue rounded-lg text-white">
-                <h3 className="font-semibold text-sm mb-2"> Get Tech Insights</h3>
+                <h3 className="font-semibold text-sm mb-2">📧 Get Tech Insights</h3>
                 <p className="text-xs opacity-90 mb-3">Subscribe for software tips and updates</p>
                 <div className="flex gap-2">
                   <input 
