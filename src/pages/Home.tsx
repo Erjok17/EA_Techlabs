@@ -72,14 +72,6 @@ const Home = () => {
     { icon: Clock, text: 'Timely delivery and support' },
     { icon: Award, text: 'Quality assured development' },
   ];
-
-  const stats = [
-    { number: '50+', label: 'Projects Delivered' },
-    { number: '100%', label: 'Client Satisfaction' },
-    { number: '24/7', label: 'Support Available' },
-    { number: 'Global', label: 'Client Base' },
-  ];
-
   // Portfolio items with actual images
   const featuredProjects: PortfolioItem[] = [
     {

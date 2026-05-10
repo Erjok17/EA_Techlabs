@@ -26,13 +26,6 @@ interface Value {
   title: string;
   desc: string;
 }
-
-interface Stat {
-  icon: React.ElementType;
-  number: string;
-  label: string;
-}
-
 interface TeamMember {
   name: string;
   role: string;
@@ -46,14 +39,6 @@ const About = () => {
     { icon: Users, title: 'True Partnership', desc: 'We work alongside you as collaborators, not just vendors. Your input matters.' },
     { icon: Target, title: 'Continuous Innovation', desc: 'We constantly evolve our solutions to meet changing needs and technologies.' },
   ];
-
-  const stats: Stat[] = [
-    { icon: Building2, number: '50+', label: 'Projects Delivered' },
-    { icon: Award, number: '100%', label: 'Client Satisfaction' },
-    { icon: Clock, number: '24/7', label: 'Support Available' },
-    { icon: Globe, number: 'Global', label: 'Client Base' },
-  ];
-
   // Team array with just one image (Portfolio2)
   const team: TeamMember[] = [
     { 
